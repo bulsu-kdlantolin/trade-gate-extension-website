@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+  <title>Privacy Policy — TradeGate</title>
+  <meta name="description" content="TradeGate stores all data locally on your device using chrome.storage.local. No accounts, no tracking, no data collection. Read our full privacy policy." >
+  <meta name="robots" content="index, follow" >
+  <link rel="canonical" href="https://tradegate.app/privacy" >
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" >
+  <meta property="og:site_name" content="TradeGate" >
+  <meta property="og:title" content="Privacy Policy — TradeGate" >
+  <meta property="og:description" content="TradeGate stores all data locally on your device. No accounts, no tracking, no data collection." >
+  <meta property="og:url" content="https://tradegate.app/privacy" >
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" >
+  <meta name="twitter:title" content="Privacy Policy — TradeGate" >
+  <meta name="twitter:description" content="TradeGate stores all data locally on your device. No accounts, no tracking, no data collection." >
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" >
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin >
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet" >
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            dark: {
+              base: '#000000',
+              surface: '#0A0A0A',
+              elevation: '#121212',
+              border: '#2C2412',
+              borderMuted: '#3A3018',
+            },
+            brand: {
+              gold: '#E5B82A',
+              goldHover: '#F7D154',
+            },
+            txt: {
+              primary: '#FFFFFF',
+              secondary: '#B8AEA2',
+              muted: '#78716C',
+            },
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { background: #000000; color: #FFFFFF; }
+    ::selection { background: #E5B82A; color: #000000; }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(58, 48, 24, 0.6); border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #E5B82A; }
+  </style>
+
+  <!-- JSON-LD: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://tradegate.app" },
+      { "@type": "ListItem", "position": 2, "name": "Privacy Policy", "item": "https://tradegate.app/privacy" }
+    ]
+  }
+  </script>
+</head>
+
+<body class="font-sans antialiased min-h-screen flex flex-col">
+
+  <!-- Navigation -->
+  <header class="sticky top-0 z-50 border-b border-dark-border bg-black/80 backdrop-blur-md">
+    <nav aria-label="Main Navigation" class="max-w-4xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2.5 group" aria-label="TradeGate Home">
+        <svg class="w-7 h-7 text-brand-gold group-hover:text-brand-goldHover transition-colors duration-150" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2L20 6.5V15.5L12 20L4 15.5V6.5L12 2Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" fill="currentColor" fill-opacity="0.15"/>
+          <path d="M12 5.5L17.5 8.5V13.5L12 16.5L6.5 13.5V8.5L12 5.5Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+          <line x1="9" y1="10" x2="9" y2="14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="12" y1="8" x2="12" y2="15.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="15" y1="10" x2="15" y2="14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <span class="text-lg font-bold text-white">TradeGate</span>
+      </a>
+      <div class="flex items-center gap-4 text-sm">
+        <a href="index.html" class="text-txt-muted hover:text-white transition-colors duration-150">Home</a>
+        <a href="terms.html" class="text-txt-muted hover:text-white transition-colors duration-150">Terms</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main aria-label="Main Content" class="flex-1 max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb" class="mb-8">
+      <ol class="flex items-center gap-2 text-sm text-txt-muted">
+        <li><a href="index.html" class="hover:text-brand-gold transition-colors duration-150">Home</a></li>
+        <li><span class="text-dark-borderMuted">/</span></li>
+        <li class="text-txt-secondary font-medium">Privacy Policy</li>
+      </ol>
+    </nav>
+
+    <article class="space-y-10">
+
+      <header class="space-y-4">
+        <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-white">Privacy Policy</h1>
+        <p class="text-txt-secondary text-base">Last updated: August 2026</p>
+        <div class="bg-dark-surface border border-dark-border rounded-xl p-4 sm:p-5">
+          <p class="text-brand-gold font-semibold text-sm flex items-center gap-2">
+            <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            TradeGate collects zero user data. All information is stored locally on your device and never transmitted to any server.
+          </p>
+        </div>
+      </header>
+
+      <!-- Section 1 -->
+      <section class="space-y-4">
+        <h2 class="text-xl font-bold text-white border-b border-dark-border pb-2">1. Extension Purpose (Single Purpose Justification)</h2>
+        <p class="text-txt-secondary leading-relaxed">
+          TradeGate is a <strong class="text-white">local-first trading journal, pre-trade discipline gate, and strategy-isolated performance analytics terminal</strong> that operates entirely within your browser as a Chrome side panel extension.
+        </p>
+        <p class="text-txt-secondary leading-relaxed">
+          The extension's single purpose is to help traders enforce pre-trade checklist discipline, calculate position sizing based on risk parameters, log trade entries with execution quality tags, and analyze trading performance across isolated strategy profiles — all without requiring any account, login, or internet connection for core functionality.
+        </p>
+      </section>
+
+      <!-- Section 2 -->
+      <section class="space-y-4">
+        <h2 class="text-xl font-bold text-white border-b border-dark-border pb-2">2. Data Storage</h2>
+        <p class="text-txt-secondary leading-relaxed">
+          TradeGate stores <strong class="text-white">all data exclusively in <code class="bg-dark-elevation px-1.5 py-0.5 rounded text-sm font-mono text-brand-gold">chrome.storage.local</code></strong> — the browser's built-in local storage API for extensions. This means:
+        </p>
+        <ul class="space-y-3 ml-4">
+          <li class="flex items-start gap-3 text-txt-secondary">
+            <span class="text-brand-gold mt-1 flex-shrink-0">✓</span>
+            <span>Your trading data <strong class="text-white">never leaves your device</strong></span>
+          </li>
+          <li class="flex items-start gap-3 text-txt-secondary">
+            <span class="text-brand-gold mt-1 flex-shrink-0">✓</span>
+            <span>There are <strong class="text-white">no remote servers, databases, or cloud storage</strong></span>
+          </li>
+          <li class="flex items-start gap-3 text-txt-secondary">
+            <span class="text-brand-gold mt-1 flex-shrink-0">✓</span>
+            <span>There is <strong class="text-white">no account creation, login, or authentication</strong></span>
+          </li>
+          <li class="flex items-start gap-3 text-txt-secondary">
+            <span class="text-brand-gold mt-1 flex-shrink-0">✓</span>
+            <span>Data persists only until <strong class="text-white">you manually delete it or uninstall the extension</strong></span>
+          </li>
+        </ul>
+        <div class="bg-dark-surface border border-dark-border rounded-xl p-4 text-sm">
+          <p class="text-txt-muted"><strong class="text-txt-secondary">Stored data includes:</strong> Strategy profiles (name, rules, risk limits, base currency), trade log entries (symbol, direction, entry/exit prices, notes, screenshots), settings preferences (theme, trading sessions), and backup export files you explicitly create.</p>
+        </div>
+      </section>
+
+      <!-- Section 3 -->
+      <section class="space-y-4">
+        <h2 class="text-xl font-bold text-white border-b border-dark-border pb-2">3. Data Collection</h2>
+        <p class="text-txt-secondary leading-relaxed">
+          <strong class="text-white">TradeGate does not collect any data.</strong> Specifically:
+        </p>
+        <ul class="space-y-3 ml-4">
+          <li class="flex items-start gap-3 text-txt-secondary">
+            <span class="text-red-400 mt-1 flex-shrink-0">✗</span>
+            <span>No analytics or telemetry of any kind</span>
+          </li>
+          <li class="flex items-start gap-3 text-txt-secondary">
+            <span class="text-red-400 mt-1 flex-shrink-0">✗</span>
+            <span>No user tracking, fingerprinting, or identification</span>
+          </li>
+          <li class="flex items-start gap-3 text-txt-secondary">
+            <span class="text-red-400 mt-1 flex-shrink-0">✗</span>
+            <span>No cookies or cross-site tracking</span>
+          </li>
+          <li class="flex items-start gap-3 text-txt-secondary">
+            <span class="text-red-400 mt-1 flex-shrink-0">✗</span>
+            <span>No personal information collection (name, email, IP, etc.)</span>
+          </li>
+          <li class="flex items-start gap-3 text-txt-secondary">
+            <span class="text-red-400 mt-1 flex-shrink-0">✗</span>
+            <span>No trading data, positions, or financial information is ever transmitted</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Section 4 -->
+      <section class="space-y-4">
+        <h2 class="text-xl font-bold text-white border-b border-dark-border pb-2">4. Chrome Permissions Explained</h2>
+        <p class="text-txt-secondary leading-relaxed mb-4">
+          TradeGate requests only the minimum permissions required for its core functionality. Below is a transparent explanation of every permission used:
+        </p>
+
+        <div class="space-y-4">
+          <div class="bg-dark-surface border border-dark-border rounded-xl p-4 sm:p-5 space-y-2">
+            <h3 class="text-sm font-bold text-white flex items-center gap-2">
+              <code class="bg-dark-elevation px-2 py-0.5 rounded text-brand-gold font-mono text-xs">storage</code>
+            </h3>
+            <p class="text-txt-secondary text-sm leading-relaxed">
+              Provides access to <code class="text-brand-gold font-mono text-xs">chrome.storage.local</code> to persist your strategy profiles, trade log entries, theme preferences, trading session configurations, and draft trade state across browser sessions. All data remains on your device.
+            </p>
+          </div>
+
+          <div class="bg-dark-surface border border-dark-border rounded-xl p-4 sm:p-5 space-y-2">
+            <h3 class="text-sm font-bold text-white flex items-center gap-2">
+              <code class="bg-dark-elevation px-2 py-0.5 rounded text-brand-gold font-mono text-xs">unlimitedStorage</code>
+            </h3>
+            <p class="text-txt-secondary text-sm leading-relaxed">
+              Removes the default 5MB storage quota for <code class="text-brand-gold font-mono text-xs">chrome.storage.local</code>, allowing your trade history, screenshots, and analytics data to grow without hitting storage limits. No data is sent elsewhere.
+            </p>
+          </div>
+
+          <div class="bg-dark-surface border border-dark-border rounded-xl p-4 sm:p-5 space-y-2">
+            <h3 class="text-sm font-bold text-white flex items-center gap-2">
+              <code class="bg-dark-elevation px-2 py-0.5 rounded text-brand-gold font-mono text-xs">sidePanel</code>
+            </h3>
+            <p class="text-txt-secondary text-sm leading-relaxed">
+              Enables TradeGate to render as a Chrome Side Panel — a persistent overlay alongside your active tab. This is the extension's primary UI surface, allowing you to journal trades while viewing charts.
+            </p>
+          </div>
+
+          <div class="bg-dark-surface border border-dark-border rounded-xl p-4 sm:p-5 space-y-2">
+            <h3 class="text-sm font-bold text-white flex items-center gap-2">
+              <code class="bg-dark-elevation px-2 py-0.5 rounded text-brand-gold font-mono text-xs">activeTab</code>
+            </h3>
+            <p class="text-txt-secondary text-sm leading-relaxed">
+              Required for side panel activation on the current tab context. TradeGate does not read, modify, or interact with the content of any web page you visit.
+            </p>
+          </div>
+
+          <div class="bg-dark-surface border border-dark-border rounded-xl p-4 sm:p-5 space-y-2">
+            <h3 class="text-sm font-bold text-white flex items-center gap-2">
+              <code class="bg-dark-elevation px-2 py-0.5 rounded text-brand-gold font-mono text-xs">scripting</code>
+            </h3>
+            <p class="text-txt-secondary text-sm leading-relaxed">
+              Enables side panel injection into the active tab context. This permission is used solely for the side panel rendering mechanism and does not execute any scripts on web pages.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 5 -->
+      <section class="space-y-4">
+        <h2 class="text-xl font-bold text-white border-b border-dark-border pb-2">5. Host Permissions</h2>
+        <p class="text-txt-secondary leading-relaxed mb-4">
+          TradeGate requests access to two external domains for asset display purposes only:
+        </p>
+
+        <div class="space-y-4">
+          <div class="bg-dark-surface border border-dark-border rounded-xl p-4 sm:p-5 space-y-2">
+            <h3 class="text-sm font-bold text-white">
+              <code class="bg-dark-elevation px-2 py-0.5 rounded text-brand-gold font-mono text-xs">https://s3-symbol-logo.tradingview.com/*</code>
+            </h3>
+            <p class="text-txt-secondary text-sm leading-relaxed">
+              Fetches exchange and asset logo images (SVG) for visual display in the ticker search and trade log. Only image files are downloaded — no user data is sent to this endpoint.
+            </p>
+          </div>
+
+          <div class="bg-dark-surface border border-dark-border rounded-xl p-4 sm:p-5 space-y-2">
+            <h3 class="text-sm font-bold text-white">
+              <code class="bg-dark-elevation px-2 py-0.5 rounded text-brand-gold font-mono text-xs">https://symbol-search.tradingview.com/*</code>
+            </h3>
+            <p class="text-txt-secondary text-sm leading-relaxed">
+              Provides ticker symbol autocomplete search functionality. Search queries contain only the partial ticker text you type (e.g., "BTC") — no personal, financial, or identifying data is included in these requests.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 6 -->
+      <section class="space-y-4">
+        <h2 class="text-xl font-bold text-white border-b border-dark-border pb-2">6. Third-Party Services</h2>
+        <p class="text-txt-secondary leading-relaxed">
+          TradeGate's only external network requests are to TradingView's public CDN for logo images and ticker symbol search. These requests:
+        </p>
+        <ul class="space-y-3 ml-4">
+          <li class="flex items-start gap-3 text-txt-secondary">
+            <span class="text-brand-gold mt-1 flex-shrink-0">•</span>
+            <span>Contain no user-identifying information</span>
+          </li>
+          <li class="flex items-start gap-3 text-txt-secondary">
+            <span class="text-brand-gold mt-1 flex-shrink-0">•</span>
+            <span>Do not transmit any trading data, positions, or financial information</span>
+          </li>
+          <li class="flex items-start gap-3 text-txt-secondary">
+            <span class="text-brand-gold mt-1 flex-shrink-0">•</span>
+            <span>Are limited to fetching publicly available static assets (SVG images, search results)</span>
+          </li>
+        </ul>
+        <p class="text-txt-secondary leading-relaxed">
+          No other third-party services, SDKs, analytics platforms, crash reporters, or ad networks are used.
+        </p>
+      </section>
+
+      <!-- Section 7 -->
+      <section class="space-y-4">
+        <h2 class="text-xl font-bold text-white border-b border-dark-border pb-2">7. Data Retention &amp; Deletion</h2>
+        <p class="text-txt-secondary leading-relaxed">
+          All data is stored locally and fully under your control:
+        </p>
+        <ul class="space-y-3 ml-4">
+          <li class="flex items-start gap-3 text-txt-secondary">
+            <span class="text-brand-gold mt-1 flex-shrink-0">•</span>
+            <span><strong class="text-white">Delete individual items:</strong> Remove strategies, trades, or settings from within the extension's Settings Hub</span>
+          </li>
+          <li class="flex items-start gap-3 text-txt-secondary">
+            <span class="text-brand-gold mt-1 flex-shrink-0">•</span>
+            <span><strong class="text-white">Delete all data:</strong> Uninstall the extension to remove all stored data</span>
+          </li>
+          <li class="flex items-start gap-3 text-txt-secondary">
+            <span class="text-brand-gold mt-1 flex-shrink-0">•</span>
+            <span><strong class="text-white">Export before deletion:</strong> Use the built-in Backup &amp; Export feature to download a JSON file of your data before deleting</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Section 8 -->
+      <section class="space-y-4">
+        <h2 class="text-xl font-bold text-white border-b border-dark-border pb-2">8. GDPR, CCPA &amp; International Privacy Compliance</h2>
+        <p class="text-txt-secondary leading-relaxed">
+          Because TradeGate <strong class="text-white">does not collect, process, store, or transmit any personal data to any server</strong>, the following privacy regulations are satisfied by design:
+        </p>
+        <ul class="space-y-3 ml-4">
+          <li class="flex items-start gap-3 text-txt-secondary">
+            <span class="text-brand-gold mt-1 flex-shrink-0">•</span>
+            <span><strong class="text-white">GDPR (EU):</strong> No personal data processing occurs. No data controller or processor role applies.</span>
+          </li>
+          <li class="flex items-start gap-3 text-txt-secondary">
+            <span class="text-brand-gold mt-1 flex-shrink-0">•</span>
+            <span><strong class="text-white">CCPA (California):</strong> No personal information is sold, shared, or disclosed to third parties.</span>
+          </li>
+          <li class="flex items-start gap-3 text-txt-secondary">
+            <span class="text-brand-gold mt-1 flex-shrink-0">•</span>
+            <span><strong class="text-white">Data Subject Requests:</strong> Not applicable — no personal data is collected that would require access, correction, or deletion requests.</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Section 9 -->
+      <section class="space-y-4">
+        <h2 class="text-xl font-bold text-white border-b border-dark-border pb-2">9. Children's Privacy</h2>
+        <p class="text-txt-secondary leading-relaxed">
+          TradeGate is a trading journal tool intended for adult traders. The extension does not knowingly collect any information from children under 13. Since no data is collected from any user, this is satisfied by design.
+        </p>
+      </section>
+
+      <!-- Section 10 -->
+      <section class="space-y-4">
+        <h2 class="text-xl font-bold text-white border-b border-dark-border pb-2">10. Changes to This Policy</h2>
+        <p class="text-txt-secondary leading-relaxed">
+          If this privacy policy is updated, changes will be reflected on this page with an updated "Last updated" date. Since TradeGate collects no data, changes to this policy are expected to be minimal and primarily for clarification purposes.
+        </p>
+      </section>
+
+      <!-- Section 11 -->
+      <section class="space-y-4">
+        <h2 class="text-xl font-bold text-white border-b border-dark-border pb-2">11. Contact</h2>
+        <p class="text-txt-secondary leading-relaxed">
+          If you have questions about this privacy policy or the TradeGate extension, you can reach out via the
+          <a href="https://github.com" class="text-brand-gold hover:text-brand-goldHover underline underline-offset-2 transition-colors duration-150">GitHub repository</a>.
+        </p>
+      </section>
+
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-dark-border mt-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-txt-muted text-sm">&copy; 2024 TradeGate. All rights reserved.</p>
+      <div class="flex items-center gap-6 text-sm">
+        <a href="index.html" class="text-txt-muted hover:text-brand-gold transition-colors duration-150">Home</a>
+        <a href="terms.html" class="text-txt-muted hover:text-brand-gold transition-colors duration-150">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
