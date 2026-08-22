@@ -83,56 +83,100 @@
 }
 
 @layer components {
-  /* Card hover glow */
+  /* Card hover glow & 3D micro-elevation */
   .card-glow {
-    transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1), border-color 200ms ease, box-shadow 200ms ease;
+    transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1), border-color 300ms ease, box-shadow 300ms ease;
+    will-change: transform, box-shadow;
   }
   .card-glow:hover {
     border-color: var(--brand-gold);
-    box-shadow: 0 4px 24px rgba(229, 184, 42, 0.08), 0 8px 32px rgba(0, 0, 0, 0.2);
-    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(229, 184, 42, 0.1), 0 20px 40px rgba(0, 0, 0, 0.25);
+    transform: translateY(-4px);
   }
 
   /* CTA button physics */
   .btn-cta {
-    transition: all 150ms cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 200ms cubic-bezier(0.16, 1, 0.3, 1);
   }
-  .btn-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(229, 184, 42, 0.3); }
+  .btn-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(229, 184, 42, 0.35); }
   .btn-cta:active { transform: scale(0.965) translateY(0); }
 
   /* Ghost button */
   .btn-ghost {
-    transition: all 150ms ease;
+    transition: all 200ms ease;
   }
-  .btn-ghost:hover { background: rgba(128, 128, 128, 0.1); }
+  .btn-ghost:hover { background: rgba(128, 128, 128, 0.1); transform: translateY(-1px); }
   .btn-ghost:active { transform: scale(0.965); }
 
-  /* Scroll reveal */
+  /* Section Laser Divider Line */
+  .section-divider {
+    position: relative;
+    border-top: 1px solid var(--border-color);
+  }
+  .section-divider::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--brand-gold), transparent);
+    opacity: 0.35;
+    pointer-events: none;
+  }
+
+  /* High-end Scroll Reveal & Spatial Presentation */
   .reveal {
     opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    transform: translateY(32px) scale(0.98);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
   }
   .reveal.visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 
-  /* Staggered children */
+  .reveal-left {
+    opacity: 0;
+    transform: translateX(-36px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+  }
+  .reveal-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .reveal-right {
+    opacity: 0;
+    transform: translateX(36px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+  }
+  .reveal-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* Cascading Staggered Children Entrance */
   .stagger-children > * {
     opacity: 0;
-    transform: translateY(16px);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    transform: translateY(28px) scale(0.97);
+    transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+    will-change: opacity, transform;
   }
   .stagger-children.visible > *:nth-child(1) { transition-delay: 0ms; }
-  .stagger-children.visible > *:nth-child(2) { transition-delay: 80ms; }
-  .stagger-children.visible > *:nth-child(3) { transition-delay: 160ms; }
-  .stagger-children.visible > *:nth-child(4) { transition-delay: 240ms; }
-  .stagger-children.visible > *:nth-child(5) { transition-delay: 320ms; }
-  .stagger-children.visible > *:nth-child(6) { transition-delay: 400ms; }
+  .stagger-children.visible > *:nth-child(2) { transition-delay: 90ms; }
+  .stagger-children.visible > *:nth-child(3) { transition-delay: 180ms; }
+  .stagger-children.visible > *:nth-child(4) { transition-delay: 270ms; }
+  .stagger-children.visible > *:nth-child(5) { transition-delay: 360ms; }
+  .stagger-children.visible > *:nth-child(6) { transition-delay: 450ms; }
+  .stagger-children.visible > *:nth-child(7) { transition-delay: 540ms; }
+  .stagger-children.visible > *:nth-child(8) { transition-delay: 630ms; }
   .stagger-children.visible > * {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 
   /* Hero glow orb */
@@ -146,12 +190,17 @@
   }
 
   /* Theme swatch */
-  .theme-swatch { transition: transform 200ms ease, box-shadow 200ms ease; }
-  .theme-swatch:hover { transform: scale(1.05); box-shadow: 0 4px 20px rgba(0,0,0,0.25); }
+  .theme-swatch { 
+    transition: transform 250ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 250ms ease, border-color 250ms ease; 
+  }
+  .theme-swatch:hover { 
+    transform: translateY(-3px) scale(1.03); 
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3); 
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .reveal { opacity: 1; transform: none; transition: none; }
+  .reveal, .reveal-left, .reveal-right { opacity: 1; transform: none; transition: none; }
   .stagger-children > * { opacity: 1; transform: none; transition: none; }
   .card-glow:hover { transform: none; }
   .btn-cta:hover { transform: none; }

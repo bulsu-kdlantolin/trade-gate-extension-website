@@ -15,6 +15,15 @@ export function TerminalMock({ theme }: TerminalMockProps) {
   const [checkedRules, setCheckedRules] = useState<number[]>([]);
   const [pressedTarget, setPressedTarget] = useState<string | null>(null);
 
+  // Step 2 Form Typing State
+  const [entryInput, setEntryInput] = useState<string>('64,200');
+  const [slInput, setSlInput] = useState<string>('63,800');
+  const [tpInput, setTpInput] = useState<string>('65,500');
+  const [focusedField, setFocusedField] = useState<'entry' | 'sl' | 'tp' | null>(null);
+  const [lotSizeDisplay, setLotSizeDisplay] = useState<string>('0.3125 BTC');
+  const [riskDisplay, setRiskDisplay] = useState<string>('$125.00 (1.0%)');
+  const [rewardDisplay, setRewardDisplay] = useState<string>('1 : 3.25 R (+$406.25)');
+
   // Container ref for relative coordinate calculations
   const bodyRef = useRef<HTMLDivElement>(null);
 
@@ -52,6 +61,7 @@ export function TerminalMock({ theme }: TerminalMockProps) {
         setActiveStep(1);
         setCheckedRules([]);
         setPressedTarget(null);
+        setFocusedField(null);
         
         await new Promise(r => setTimeout(r, 200));
         if (isCancelled) break;
@@ -111,7 +121,7 @@ export function TerminalMock({ theme }: TerminalMockProps) {
         // Move to Gate Unlocked button center
         const btn1Pos = getTargetCenter('stage1_btn');
         setCursorPos({ x: btn1Pos.x, y: btn1Pos.y, clicking: false, visible: true });
-        await new Promise(r => setTimeout(r, 550));
+        await new Promise(r => setTimeout(r, 500));
         if (isCancelled) break;
 
         // Click Unlocked button to proceed to sizing
@@ -123,22 +133,92 @@ export function TerminalMock({ theme }: TerminalMockProps) {
         setPressedTarget(null);
 
         // ==========================================
-        // --- STAGE 2: SIZING & RISK FORM ---
+        // --- STAGE 2: SIZING & RISK FORM (MANUAL TYPING ANIMATION) ---
         // ==========================================
         setActiveStep(2);
+        setEntryInput('');
+        setSlInput('');
+        setTpInput('');
+        setLotSizeDisplay('Awaiting inputs...');
+        setRiskDisplay('Awaiting inputs...');
+        setRewardDisplay('Awaiting inputs...');
         await new Promise(r => setTimeout(r, 350));
         if (isCancelled) break;
 
-        // Hover over calculated inputs
-        const inputPos = getTargetCenter('stage2_input');
-        setCursorPos({ x: inputPos.x, y: inputPos.y, clicking: false, visible: true });
-        await new Promise(r => setTimeout(r, 1000));
+        // 1. Move to Entry Price field & Type
+        const entryFieldPos = getTargetCenter('stage2_entry');
+        setCursorPos({ x: entryFieldPos.x, y: entryFieldPos.y, clicking: false, visible: true });
+        await new Promise(r => setTimeout(r, 400));
+        if (isCancelled) break;
+
+        setCursorPos({ x: entryFieldPos.x, y: entryFieldPos.y, clicking: true, visible: true });
+        setFocusedField('entry');
+        await new Promise(r => setTimeout(r, 150));
+        setCursorPos({ x: entryFieldPos.x, y: entryFieldPos.y, clicking: false, visible: true });
+
+        // Manual typing "64,200"
+        const entryChars = ['6', '64', '64,2', '64,20', '64,200'];
+        for (const str of entryChars) {
+          if (isCancelled) break;
+          setEntryInput(str);
+          await new Promise(r => setTimeout(r, 75));
+        }
+        if (isCancelled) break;
+        await new Promise(r => setTimeout(r, 120));
+
+        // 2. Move to Stop Loss field & Type
+        const slFieldPos = getTargetCenter('stage2_sl');
+        setCursorPos({ x: slFieldPos.x, y: slFieldPos.y, clicking: false, visible: true });
+        await new Promise(r => setTimeout(r, 350));
+        if (isCancelled) break;
+
+        setCursorPos({ x: slFieldPos.x, y: slFieldPos.y, clicking: true, visible: true });
+        setFocusedField('sl');
+        await new Promise(r => setTimeout(r, 150));
+        setCursorPos({ x: slFieldPos.x, y: slFieldPos.y, clicking: false, visible: true });
+
+        // Manual typing "63,800"
+        const slChars = ['6', '63', '63,8', '63,80', '63,800'];
+        for (const str of slChars) {
+          if (isCancelled) break;
+          setSlInput(str);
+          await new Promise(r => setTimeout(r, 75));
+        }
+        if (isCancelled) break;
+        // Dynamic calculation of Lot Size & Risk
+        setLotSizeDisplay('0.3125 BTC');
+        setRiskDisplay('$125.00 (1.0%)');
+        await new Promise(r => setTimeout(r, 120));
+
+        // 3. Move to Take Profit field & Type
+        const tpFieldPos = getTargetCenter('stage2_tp');
+        setCursorPos({ x: tpFieldPos.x, y: tpFieldPos.y, clicking: false, visible: true });
+        await new Promise(r => setTimeout(r, 350));
+        if (isCancelled) break;
+
+        setCursorPos({ x: tpFieldPos.x, y: tpFieldPos.y, clicking: true, visible: true });
+        setFocusedField('tp');
+        await new Promise(r => setTimeout(r, 150));
+        setCursorPos({ x: tpFieldPos.x, y: tpFieldPos.y, clicking: false, visible: true });
+
+        // Manual typing "65,500"
+        const tpChars = ['6', '65', '65,5', '65,50', '65,500'];
+        for (const str of tpChars) {
+          if (isCancelled) break;
+          setTpInput(str);
+          await new Promise(r => setTimeout(r, 75));
+        }
+        if (isCancelled) break;
+        // Dynamic calculation of R-Multiple
+        setRewardDisplay('1 : 3.25 R (+$406.25)');
+        setFocusedField(null);
+        await new Promise(r => setTimeout(r, 350));
         if (isCancelled) break;
 
         // Move cursor to "Execute & Log Trade" button center
         const btn2Pos = getTargetCenter('stage2_btn');
         setCursorPos({ x: btn2Pos.x, y: btn2Pos.y, clicking: false, visible: true });
-        await new Promise(r => setTimeout(r, 550));
+        await new Promise(r => setTimeout(r, 450));
         if (isCancelled) break;
 
         // Click "Execute & Log Trade"
@@ -404,7 +484,7 @@ export function TerminalMock({ theme }: TerminalMockProps) {
           </div>
         )}
 
-        {/* STAGE 2: Sizing & Risk Form (Second Step) */}
+        {/* STAGE 2: Sizing & Risk Form with Realistic Typing Simulation */}
         {activeStep === 2 && (
           <div className="space-y-3 animate-fade-in flex-1 flex flex-col justify-between">
             <div className="flex items-center justify-between">
@@ -419,38 +499,67 @@ export function TerminalMock({ theme }: TerminalMockProps) {
               <span className="text-[10px] text-txt-muted font-mono">1% Balance Risk ($12,500 Acc)</span>
             </div>
 
-            {/* Inputs preview */}
-            <div data-cursor="stage2_input" className="grid grid-cols-3 gap-2">
-              <div className="bg-dark-base p-2 rounded-lg border border-dark-border">
+            {/* Inputs grid with dynamic typing & active focus indicator */}
+            <div className="grid grid-cols-3 gap-2">
+              {/* Entry Price Field */}
+              <div 
+                data-cursor="stage2_entry" 
+                className={`bg-dark-base p-2 rounded-lg border transition-colors ${
+                  focusedField === 'entry' ? 'border-brand-gold shadow-[0_0_10px_rgba(229,184,42,0.25)]' : 'border-dark-border'
+                }`}
+              >
                 <span className="text-[10px] text-txt-muted block mb-0.5">Entry Price</span>
-                <span className="font-mono text-xs font-bold text-txt-primary">$64,200.00</span>
+                <div className="font-mono text-xs font-bold text-txt-primary flex items-center h-4">
+                  <span>${entryInput || ''}</span>
+                  {focusedField === 'entry' && <span className="w-1.5 h-3.5 bg-brand-gold ml-0.5 animate-pulse"></span>}
+                </div>
               </div>
-              <div className="bg-dark-base p-2 rounded-lg border border-dark-border">
+
+              {/* Stop Loss Field */}
+              <div 
+                data-cursor="stage2_sl" 
+                className={`bg-dark-base p-2 rounded-lg border transition-colors ${
+                  focusedField === 'sl' ? 'border-trade-red shadow-[0_0_10px_rgba(255,51,102,0.25)]' : 'border-dark-border'
+                }`}
+              >
                 <span className="text-[10px] text-txt-muted block mb-0.5">Stop Loss</span>
-                <span className="font-mono text-xs font-bold" style={{ color: currentTheme.bearish }}>$63,800.00</span>
+                <div className="font-mono text-xs font-bold flex items-center h-4" style={{ color: currentTheme.bearish }}>
+                  <span>${slInput || ''}</span>
+                  {focusedField === 'sl' && <span className="w-1.5 h-3.5 bg-trade-red ml-0.5 animate-pulse"></span>}
+                </div>
               </div>
-              <div className="bg-dark-base p-2 rounded-lg border border-dark-border">
+
+              {/* Take Profit Field */}
+              <div 
+                data-cursor="stage2_tp" 
+                className={`bg-dark-base p-2 rounded-lg border transition-colors ${
+                  focusedField === 'tp' ? 'border-trade-green shadow-[0_0_10px_rgba(0,230,118,0.25)]' : 'border-dark-border'
+                }`}
+              >
                 <span className="text-[10px] text-txt-muted block mb-0.5">Take Profit</span>
-                <span className="font-mono text-xs font-bold" style={{ color: currentTheme.bullish }}>$65,500.00</span>
+                <div className="font-mono text-xs font-bold flex items-center h-4" style={{ color: currentTheme.bullish }}>
+                  <span>${tpInput || ''}</span>
+                  {focusedField === 'tp' && <span className="w-1.5 h-3.5 bg-trade-green ml-0.5 animate-pulse"></span>}
+                </div>
               </div>
             </div>
 
-            {/* Calculated Box */}
+            {/* Calculated Box updated dynamically */}
             <div 
               className="rounded-xl p-3 border space-y-1.5"
               style={{ backgroundColor: currentTheme.bgElevation, borderColor: `${currentTheme.accent}30` }}
             >
               <div className="flex items-center justify-between text-xs">
                 <span className="text-txt-secondary font-medium">Calculated Lot Size:</span>
-                <span className="font-mono font-bold text-sm" style={{ color: currentTheme.accent }}>0.3125 BTC</span>
+                <span className="font-mono font-bold text-sm" style={{ color: currentTheme.accent }}>{lotSizeDisplay}</span>
               </div>
               <div className="flex items-center justify-between text-xs">
                 <span className="text-txt-secondary font-medium">Dollar Risk Amount:</span>
-                <span className="font-mono font-bold" style={{ color: currentTheme.bearish }}>$125.00 (1.0%)</span>
+                <span className="font-mono font-bold" style={{ color: currentTheme.bearish }}>{riskDisplay}</span>
               </div>
               <div className="flex items-center justify-between text-xs">
                 <span className="text-txt-secondary font-medium">Target Reward Ratio:</span>
-                <span className="font-mono font-bold" style={{ color: currentTheme.bullish }}>1 : 3.25 R (+$406.25)</span>
+                <span className="font-mono font-bold" style={{ color: currentTheme.bullish }}>{rewardDisplay}</span>
               </div>
             </div>
 

@@ -11,7 +11,7 @@ export function HowItWorks() {
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
     if (sectionRef.current) {
       const elements = sectionRef.current.querySelectorAll('.reveal, .stagger-children');
@@ -24,15 +24,15 @@ export function HowItWorks() {
   const steps = [
     {
       num: "01",
-      title: "Define Your Edge & Sizing",
-      desc: "Select your trading strategy and enter your planned trade parameters. TradeGate instantly calculates exact position sizing and R-multiples.",
-      detail: "Formula: Lot Size = (Account Balance × Risk %) / |Entry − SL|"
+      title: "Pass the Discipline Gate",
+      desc: "Your pre-configured rules appear as a mandatory checklist. Execution stays physically locked until all 4 criteria are checked green.",
+      detail: "Enforces 100% rule compliance with zero impulse orders"
     },
     {
       num: "02",
-      title: "Pass the Discipline Gate",
-      desc: "Your pre-configured rules appear as a mandatory checklist. Execution stays physically locked until all 4 criteria are checked off.",
-      detail: "Enforces 100% rule compliance with zero impulse orders"
+      title: "Define Your Edge & Sizing",
+      desc: "Select your trading strategy and enter planned trade parameters. TradeGate calculates exact lot sizing, dollar risk, and target R-multiples.",
+      detail: "Formula: Lot Size = (Balance × Risk %) / |Entry − SL|"
     },
     {
       num: "03",
@@ -45,10 +45,13 @@ export function HowItWorks() {
   return (
     <section 
       id="how-it-works" 
-      className="relative py-20 sm:py-28 border-t border-dark-border min-h-screen flex flex-col justify-center scroll-mt-16" 
+      className="relative py-20 sm:py-24 section-divider flex flex-col justify-center scroll-mt-16 overflow-hidden" 
       ref={sectionRef}
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      {/* Background ambient glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] h-[350px] bg-brand-gold/5 blur-[140px] rounded-full pointer-events-none"></div>
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
         <div className="text-center mb-16 reveal">
           <p className="text-brand-gold text-sm font-bold uppercase tracking-widest mb-3">Mechanical Discipline</p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-txt-primary">
@@ -57,11 +60,16 @@ export function HowItWorks() {
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 stagger-children">
+        <div className="grid md:grid-cols-3 gap-8 stagger-children relative">
           {steps.map((step, idx) => (
-            <div key={idx} className="card-glow bg-dark-surface border border-dark-border rounded-2xl p-7 space-y-4 relative flex flex-col justify-between">
+            <div key={idx} className="card-glow bg-dark-surface border border-dark-border rounded-2xl p-7 space-y-4 relative flex flex-col justify-between shadow-xl">
               <div>
-                <span className="font-mono text-3xl font-extrabold text-brand-gold block mb-3 opacity-90">{step.num}</span>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="font-mono text-3xl font-extrabold text-brand-gold opacity-90">{step.num}</span>
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-dark-elevation border border-dark-border text-txt-muted">
+                    PHASE {step.num}
+                  </span>
+                </div>
                 <h3 className="text-xl font-bold text-txt-primary mb-2">{step.title}</h3>
                 <p className="text-txt-secondary text-sm leading-relaxed mb-4">{step.desc}</p>
               </div>

@@ -11,7 +11,7 @@ export function ProfessionalTools() {
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
     if (sectionRef.current) {
       const elements = sectionRef.current.querySelectorAll('.reveal, .stagger-children');
@@ -24,10 +24,13 @@ export function ProfessionalTools() {
   return (
     <section 
       id="tools" 
-      className="relative py-20 sm:py-28 border-t border-dark-border min-h-screen flex flex-col justify-center scroll-mt-16" 
+      className="relative py-20 sm:py-24 section-divider flex flex-col justify-center scroll-mt-16 overflow-hidden" 
       ref={sectionRef}
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      {/* Background ambient glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[400px] bg-brand-gold/5 blur-[150px] rounded-full pointer-events-none"></div>
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
         <div className="text-center mb-16 reveal">
           <p className="text-brand-gold text-sm font-bold uppercase tracking-widest mb-3">Tool Ecosystem</p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-txt-primary">
@@ -41,42 +44,42 @@ export function ProfessionalTools() {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children">
           
-          {/* SNAPSHOT 1: Session Market Clock */}
+          {/* SNAPSHOT 1: ICT/SMC 4-Session Market Clock */}
           <div className="card-glow bg-dark-surface border border-dark-border rounded-2xl p-5 space-y-3.5 flex flex-col justify-between shadow-xl">
             <div>
               <div className="flex items-center justify-between mb-2">
                 <h3 className="text-base font-bold text-txt-primary">Session Market Clock</h3>
                 <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-brand-goldDim text-brand-gold border border-brand-gold/20 font-bold">
-                  LIVE STATUS
+                  LIVE ICT / SMC
                 </span>
               </div>
               <p className="text-xs text-txt-secondary leading-relaxed mb-3">
-                Live visual session status for global currency and futures markets with local UTC conversion.
+                Live 4-session visual status for Forex and Futures with 12-hour local time conversion and custom color tags.
               </p>
             </div>
 
             {/* Extension UI Snapshot */}
-            <div className="bg-dark-elevation border border-dark-border rounded-xl p-3 space-y-2 font-mono text-[11px]">
-              <div className="flex items-center justify-between p-1.5 rounded bg-dark-base border border-dark-border">
+            <div className="bg-dark-elevation border border-dark-border rounded-xl p-2.5 space-y-1.5 font-mono text-[11px]">
+              <div className="flex items-center justify-between p-1.5 rounded bg-blue-500/10 border border-blue-500/30">
                 <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-trade-green animate-pulse"></span>
-                  <span className="font-bold text-txt-primary">London Session</span>
+                  <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+                  <span className="font-bold text-blue-400">London Session</span>
                 </div>
-                <span className="text-trade-green text-[10px] font-bold">OPEN · 08:00-16:30</span>
+                <span className="text-blue-400 text-[10px] font-bold">ACTIVE · 02:00 PM - 06:00 PM</span>
               </div>
-              <div className="flex items-center justify-between p-1.5 rounded bg-dark-base border border-dark-border">
+              <div className="flex items-center justify-between p-1.5 rounded bg-red-500/10 border border-red-500/30">
                 <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-trade-green animate-pulse"></span>
-                  <span className="font-bold text-txt-primary">New York Session</span>
+                  <span className="w-2 h-2 rounded-full bg-red-400 animate-pulse"></span>
+                  <span className="font-bold text-red-400">NY AM Session</span>
                 </div>
-                <span className="text-trade-green text-[10px] font-bold">OPEN · 13:30-20:00</span>
+                <span className="text-red-400 text-[10px] font-bold">ACTIVE · 08:30 PM - 12:00 AM</span>
               </div>
               <div className="flex items-center justify-between p-1.5 rounded bg-dark-base/50 border border-dark-border/50 text-txt-muted">
                 <div className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-txt-muted"></span>
-                  <span>Tokyo Session</span>
+                  <span>Asia Session</span>
                 </div>
-                <span className="text-[10px]">CLOSED · 00:00 UTC</span>
+                <span className="text-[10px]">08:00 AM - 02:00 PM</span>
               </div>
             </div>
           </div>
@@ -96,10 +99,10 @@ export function ProfessionalTools() {
             </div>
 
             {/* Extension UI Snapshot */}
-            <div className="bg-dark-elevation border border-dark-border rounded-xl p-3 space-y-1.5 font-mono text-[11px]">
+            <div className="bg-dark-elevation border border-dark-border rounded-xl p-2.5 space-y-1.5 font-mono text-[11px]">
               <div className="flex items-center justify-between p-1.5 rounded bg-dark-base border border-brand-gold/30 text-txt-primary">
                 <span className="font-bold text-brand-gold">BTCUSDT</span>
-                <span className="text-txt-muted text-[10px]">Crypto · 0.001 Lot Step</span>
+                <span className="text-txt-muted text-[10px]">Crypto · 1.0 Lot Step</span>
               </div>
               <div className="flex items-center justify-between p-1.5 rounded bg-dark-base/70 border border-dark-border text-txt-secondary">
                 <span className="font-bold">EURUSD</span>
@@ -127,7 +130,7 @@ export function ProfessionalTools() {
             </div>
 
             {/* Extension UI Snapshot */}
-            <div className="bg-dark-elevation border border-dark-border rounded-xl p-3 space-y-2">
+            <div className="bg-dark-elevation border border-dark-border rounded-xl p-2.5 space-y-2">
               <div className="flex justify-between text-[10px] font-mono text-txt-muted">
                 <span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span>
               </div>
@@ -170,7 +173,7 @@ export function ProfessionalTools() {
             </div>
 
             {/* Extension UI Snapshot */}
-            <div className="bg-dark-elevation border border-dark-border rounded-xl p-3 space-y-2 font-mono text-[11px]">
+            <div className="bg-dark-elevation border border-dark-border rounded-xl p-2.5 space-y-2 font-mono text-[11px]">
               <div className="flex items-center justify-between text-xs text-txt-primary font-bold">
                 <span>TradeGate_Audit_Log.pdf</span>
                 <span className="text-brand-gold text-[10px]">READY</span>
@@ -207,7 +210,7 @@ export function ProfessionalTools() {
             </div>
 
             {/* Extension UI Snapshot */}
-            <div className="bg-dark-elevation border border-brand-gold/30 rounded-xl p-3 space-y-1.5 font-mono text-[11px] shadow-lg">
+            <div className="bg-dark-elevation border border-brand-gold/30 rounded-xl p-2.5 space-y-1.5 font-mono text-[11px] shadow-lg">
               <div className="flex items-center justify-between border-b border-dark-border pb-1">
                 <span className="font-bold text-brand-gold text-xs">BTCUSDT · LONG</span>
                 <span className="text-trade-green font-bold text-xs">+$406.25 (+3.25R)</span>
@@ -234,7 +237,7 @@ export function ProfessionalTools() {
             </div>
 
             {/* Extension UI Snapshot */}
-            <div className="bg-dark-elevation border border-dark-border rounded-xl p-3 space-y-2 font-mono text-[11px]">
+            <div className="bg-dark-elevation border border-dark-border rounded-xl p-2.5 space-y-2 font-mono text-[11px]">
               <div className="flex items-center justify-between text-xs">
                 <span className="text-txt-muted">Current Balance:</span>
                 <span className="font-bold text-txt-primary text-sm">$15,350.00</span>

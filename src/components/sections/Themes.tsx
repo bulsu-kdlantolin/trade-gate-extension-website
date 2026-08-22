@@ -16,10 +16,10 @@ export function Themes() {
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
     if (sectionRef.current) {
-      const elements = sectionRef.current.querySelectorAll('.reveal');
+      const elements = sectionRef.current.querySelectorAll('.reveal, .reveal-left, .reveal-right, .stagger-children');
       elements.forEach(el => observer.observe(el));
     }
     
@@ -31,7 +31,7 @@ export function Themes() {
   return (
     <section 
       id="themes" 
-      className="relative py-20 sm:py-28 border-t border-dark-border overflow-hidden min-h-screen flex flex-col justify-center scroll-mt-16" 
+      className="relative py-20 sm:py-24 section-divider overflow-hidden flex flex-col justify-center scroll-mt-16" 
       ref={sectionRef}
     >
       {/* Background accent matching active theme */}
@@ -54,7 +54,7 @@ export function Themes() {
 
         <div className="grid lg:grid-cols-[1fr_420px] gap-10 lg:gap-14 items-center">
           {/* Swatches Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3.5 reveal">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3.5 stagger-children">
             {exchangeThemes.map((theme) => {
               const isActive = activeTheme.id === theme.id;
               const themeColors = mode === 'light' ? theme.light : theme.dark;
@@ -111,7 +111,7 @@ export function Themes() {
           </div>
 
           {/* Dynamic Preview */}
-          <div className="reveal hidden lg:block">
+          <div className="reveal-right hidden lg:block">
             <div className="relative">
               {/* Highlight effect behind mock */}
               <div 
