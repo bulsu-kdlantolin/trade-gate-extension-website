@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
 import { ThemeModeProvider } from './context/ThemeModeContext';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
@@ -35,6 +36,7 @@ export function App() {
           </div>
           <Footer />
         </div>
+        <Analytics />
       </Router>
     </ThemeModeProvider>
   );
