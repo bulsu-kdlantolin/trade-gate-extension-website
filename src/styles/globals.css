@@ -6,42 +6,71 @@
   :root,
   [data-mode="dark"] {
     --bg-base: #000000;
+    --bg-base-rgb: 0, 0, 0;
     --bg-surface: #0A0A0A;
+    --bg-surface-rgb: 10, 10, 10;
     --bg-elevation: #121212;
+    --bg-elevation-rgb: 18, 18, 18;
     --border-color: #2C2412;
+    --border-color-rgb: 44, 36, 18;
     --border-muted: #3A3018;
+    --border-muted-rgb: 58, 48, 24;
     --text-primary: #FFFFFF;
+    --text-primary-rgb: 255, 255, 255;
     --text-secondary: #B8AEA2;
+    --text-secondary-rgb: 184, 174, 162;
     --text-muted: #78716C;
+    --text-muted-rgb: 120, 113, 108;
     --brand-gold: #E5B82A;
+    --brand-gold-rgb: 229, 184, 42;
     --brand-gold-hover: #F7D154;
+    --brand-gold-hover-rgb: 247, 209, 84;
     --brand-gold-dim: rgba(229, 184, 42, 0.15);
     --trade-green: #00E676;
+    --trade-green-rgb: 0, 230, 118;
     --trade-green-dim: rgba(0, 230, 118, 0.12);
     --trade-red: #FF3366;
+    --trade-red-rgb: 255, 51, 102;
     --trade-red-dim: rgba(255, 51, 102, 0.12);
     --hero-glow: radial-gradient(ellipse at center, rgba(229, 184, 42, 0.12) 0%, transparent 70%);
-    --nav-bg: rgba(0, 0, 0, 0.88);
   }
 
   [data-mode="light"] {
     --bg-base: #F8F7F4;
+    --bg-base-rgb: 248, 247, 244;
     --bg-surface: #FFFFFF;
+    --bg-surface-rgb: 255, 255, 255;
     --bg-elevation: #F0EEE8;
+    --bg-elevation-rgb: 240, 238, 232;
     --border-color: #E0DACC;
+    --border-color-rgb: 224, 218, 204;
     --border-muted: #D0C8B8;
+    --border-muted-rgb: 208, 200, 184;
     --text-primary: #0F0E0C;
+    --text-primary-rgb: 15, 14, 12;
     --text-secondary: #57534E;
+    --text-secondary-rgb: 87, 83, 78;
     --text-muted: #8A8278;
+    --text-muted-rgb: 138, 130, 120;
     --brand-gold: #C2910C;
+    --brand-gold-rgb: 194, 145, 12;
     --brand-gold-hover: #A07406;
+    --brand-gold-hover-rgb: 160, 116, 6;
     --brand-gold-dim: rgba(194, 145, 12, 0.12);
     --trade-green: #029A60;
+    --trade-green-rgb: 2, 154, 96;
     --trade-green-dim: rgba(2, 154, 96, 0.12);
     --trade-red: #E0354E;
+    --trade-red-rgb: 224, 53, 78;
     --trade-red-dim: rgba(224, 53, 78, 0.12);
     --hero-glow: radial-gradient(ellipse at center, rgba(194, 145, 12, 0.08) 0%, transparent 70%);
-    --nav-bg: rgba(248, 247, 244, 0.90);
+  }
+
+  /* Universal border reset */
+  *,
+  ::before,
+  ::after {
+    border-color: var(--border-color);
   }
 
   html {

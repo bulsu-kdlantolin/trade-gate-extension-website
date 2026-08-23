@@ -1,4 +1,14 @@
 /** @type {import('tailwindcss').Config} */
+
+function withOpacity(variableName, rgbVariableName) {
+  return ({ opacityValue }) => {
+    if (opacityValue !== undefined) {
+      return `rgba(var(${rgbVariableName}), ${opacityValue})`;
+    }
+    return `var(${variableName})`;
+  };
+}
+
 export default {
   content: [
     "./index.html",
@@ -12,27 +22,27 @@ export default {
       },
       colors: {
         dark: {
-          base: 'var(--bg-base)',
-          surface: 'var(--bg-surface)',
-          elevation: 'var(--bg-elevation)',
-          border: 'var(--border-color)',
-          borderMuted: 'var(--border-muted)',
+          base: withOpacity('--bg-base', '--bg-base-rgb'),
+          surface: withOpacity('--bg-surface', '--bg-surface-rgb'),
+          elevation: withOpacity('--bg-elevation', '--bg-elevation-rgb'),
+          border: withOpacity('--border-color', '--border-color-rgb'),
+          borderMuted: withOpacity('--border-muted', '--border-muted-rgb'),
         },
         brand: {
-          gold: 'var(--brand-gold)',
-          goldHover: 'var(--brand-gold-hover)',
+          gold: withOpacity('--brand-gold', '--brand-gold-rgb'),
+          goldHover: withOpacity('--brand-gold-hover', '--brand-gold-hover-rgb'),
           goldDim: 'var(--brand-gold-dim)',
         },
         trade: {
-          green: 'var(--trade-green)',
+          green: withOpacity('--trade-green', '--trade-green-rgb'),
           greenDim: 'var(--trade-green-dim)',
-          red: 'var(--trade-red)',
+          red: withOpacity('--trade-red', '--trade-red-rgb'),
           redDim: 'var(--trade-red-dim)',
         },
         txt: {
-          primary: 'var(--text-primary)',
-          secondary: 'var(--text-secondary)',
-          muted: 'var(--text-muted)',
+          primary: withOpacity('--text-primary', '--text-primary-rgb'),
+          secondary: withOpacity('--text-secondary', '--text-secondary-rgb'),
+          muted: withOpacity('--text-muted', '--text-muted-rgb'),
         },
       },
       animation: {

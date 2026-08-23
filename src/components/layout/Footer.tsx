@@ -1,9 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 export function Footer() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const handleLogoClick = (e: React.MouseEvent) => {
-    if (window.location.pathname === '/') {
+    if (location.pathname === '/') {
       e.preventDefault();
       const hero = document.getElementById('hero');
       if (hero) {
@@ -11,8 +14,39 @@ export function Footer() {
       } else {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
+    } else {
+      navigate('/');
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 50);
     }
   };
+
+  const handleNavAnchor = (e: React.MouseEvent, sectionId: string) => {
+    e.preventDefault();
+    if (location.pathname !== '/') {
+      navigate(`/#${sectionId}`);
+      return;
+    }
+    const target = document.getElementById(sectionId);
+    if (target) {
+      const navbarHeight = 64;
+      const elementPosition = target.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  const navItems = [
+    { id: 'features', label: 'Features' },
+    { id: 'themes', label: '8 Exchange Themes' },
+    { id: 'how-it-works', label: 'How It Works' },
+    { id: 'tools', label: 'Tools Ecosystem' },
+    { id: 'privacy-trust', label: 'Privacy Architecture' },
+  ];
 
   return (
     <footer className="border-t border-dark-border bg-dark-surface pt-4 pb-3 sm:pt-5 sm:pb-4">
@@ -35,7 +69,7 @@ export function Footer() {
                   <line x1="12" y1="8" x2="12" y2="15.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
                   <line x1="15" y1="10" x2="15" y2="14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
                 </svg>
-                <span className="font-bold text-xs text-txt-primary tracking-tight">TradeGate</span>
+                <span className="font-bold text-xs text-txt-primary tracking-tight group-hover:text-brand-gold transition-colors">TradeGate</span>
               </Link>
             </div>
             <p className="text-[11px] text-txt-secondary leading-relaxed">
@@ -49,21 +83,17 @@ export function Footer() {
               <h4 className="text-[11px] font-bold font-mono uppercase tracking-wider text-txt-primary">Product</h4>
             </div>
             <ul className="space-y-1 text-[11px] text-txt-secondary">
-              <li>
-                <a href="/#features" className="hover:text-brand-gold transition-colors">Features</a>
-              </li>
-              <li>
-                <a href="/#themes" className="hover:text-brand-gold transition-colors">8 Exchange Themes</a>
-              </li>
-              <li>
-                <a href="/#how-it-works" className="hover:text-brand-gold transition-colors">How It Works</a>
-              </li>
-              <li>
-                <a href="/#tools" className="hover:text-brand-gold transition-colors">Tools Ecosystem</a>
-              </li>
-              <li>
-                <a href="/#privacy-trust" className="hover:text-brand-gold transition-colors">Privacy Architecture</a>
-              </li>
+              {navItems.map((item) => (
+                <li key={item.id}>
+                  <a 
+                    href={`/#${item.id}`}
+                    onClick={(e) => handleNavAnchor(e, item.id)}
+                    className="hover:text-brand-gold transition-colors"
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -82,9 +112,6 @@ export function Footer() {
                 <a href="https://chrome.google.com/webstore" target="_blank" rel="noopener noreferrer" className="hover:text-brand-gold transition-colors">
                   Chrome Web Store
                 </a>
-              </li>
-              <li>
-                <span className="text-txt-muted">100% Free &amp; Open</span>
               </li>
             </ul>
           </div>
