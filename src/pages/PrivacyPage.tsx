@@ -102,18 +102,10 @@ export function PrivacyPage() {
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xl font-bold text-txt-primary">5. Contact &amp; Developer Support</h2>
+          <h2 className="text-xl font-bold text-txt-primary">5. Contact &amp; Inquiries</h2>
           <p>
-            If you have questions regarding this Privacy Policy, store permissions, or TradeGate&apos;s local-first architecture, please reach out directly to the core development team:
+            If you have questions regarding this Privacy Policy, store permissions, or TradeGate&apos;s local-first architecture, please reach out through our official <Link to="/support" className="text-brand-gold hover:underline font-semibold">Support &amp; Community</Link> page or the Chrome Web Store support listing.
           </p>
-          <div className="pt-1">
-            <a 
-              href="mailto:support@tradegate.app" 
-              className="inline-flex items-center gap-2 text-brand-gold hover:underline font-semibold"
-            >
-              support@tradegate.app
-            </a>
-          </div>
         </section>
       </div>
     </div>

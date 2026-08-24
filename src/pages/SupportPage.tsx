@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Copy, Check, Heart, Shield, Terminal, Zap, ArrowLeft, Mail } from 'lucide-react';
+import { Copy, Check, Heart, Shield, Terminal, Zap, ArrowLeft } from 'lucide-react';
 
 interface CryptoAddress {
   coin: string;
@@ -179,21 +179,12 @@ export function SupportPage() {
         </div>
       </div>
 
-      {/* Direct Contact & Thank You Note */}
-      <div className="mt-12 text-center text-xs text-txt-muted space-y-3 border-t border-dark-border pt-8">
+      {/* Thank You Note */}
+      <div className="mt-12 text-center text-xs text-txt-muted space-y-2 border-t border-dark-border pt-8">
         <p className="text-txt-secondary">
-          Need developer support, want to report a bug, or suggest a feature?
+          Thank you for supporting the continuous development of discipline-first trading tools.
         </p>
-        <div>
-          <a 
-            href="mailto:support@tradegate.app" 
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-dark-surface border border-dark-border hover:border-brand-gold/40 text-brand-gold font-semibold text-xs transition-colors"
-          >
-            <Mail className="w-3.5 h-3.5" />
-            support@tradegate.app
-          </a>
-        </div>
-        <p className="pt-2">&copy; 2026 TradeGate Development Team. Every contribution directly supports new feature releases.</p>
+        <p className="pt-1">&copy; 2026 TradeGate Development Team. Every contribution directly supports new feature releases.</p>
       </div>
     </div>
   );

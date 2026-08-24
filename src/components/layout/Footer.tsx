@@ -118,14 +118,6 @@ export function Footer() {
                   Chrome Web Store
                 </a>
               </li>
-              <li>
-                <a 
-                  href="mailto:support@tradegate.app" 
-                  className="hover:text-brand-gold transition-colors"
-                >
-                  support@tradegate.app
-                </a>
-              </li>
             </ul>
           </div>
 

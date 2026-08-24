@@ -74,16 +74,8 @@ export function TermsPage() {
         <section className="space-y-3">
           <h2 className="text-xl font-bold text-txt-primary">5. Contact Information</h2>
           <p>
-            For legal inquiries, feedback, or developer questions regarding these Terms of Service, please contact us:
+            For inquiries, feedback, or questions regarding these Terms of Service, please reach out through our official <Link to="/support" className="text-brand-gold hover:underline font-semibold">Support &amp; Community</Link> page.
           </p>
-          <div className="pt-1">
-            <a 
-              href="mailto:support@tradegate.app" 
-              className="inline-flex items-center gap-2 text-brand-gold hover:underline font-semibold"
-            >
-              support@tradegate.app
-            </a>
-          </div>
         </section>
       </div>
     </div>
