@@ -20,9 +20,9 @@ export function TerminalMock({ theme }: TerminalMockProps) {
   const [slInput, setSlInput] = useState<string>('63,800');
   const [tpInput, setTpInput] = useState<string>('65,500');
   const [focusedField, setFocusedField] = useState<'entry' | 'sl' | 'tp' | null>(null);
-  const [lotSizeDisplay, setLotSizeDisplay] = useState<string>('0.3125 BTC');
+  const [targetRrDisplay, setTargetRrDisplay] = useState<string>('1 : 3.25 R');
   const [riskDisplay, setRiskDisplay] = useState<string>('$125.00 (1.0%)');
-  const [rewardDisplay, setRewardDisplay] = useState<string>('1 : 3.25 R (+$406.25)');
+  const [profitDisplay, setProfitDisplay] = useState<string>('+$406.25');
 
   // Container ref for relative coordinate calculations
   const bodyRef = useRef<HTMLDivElement>(null);
@@ -139,9 +139,9 @@ export function TerminalMock({ theme }: TerminalMockProps) {
         setEntryInput('');
         setSlInput('');
         setTpInput('');
-        setLotSizeDisplay('Awaiting inputs...');
+        setTargetRrDisplay('Awaiting inputs...');
         setRiskDisplay('Awaiting inputs...');
-        setRewardDisplay('Awaiting inputs...');
+        setProfitDisplay('Awaiting inputs...');
         await new Promise(r => setTimeout(r, 350));
         if (isCancelled) break;
 
@@ -185,8 +185,7 @@ export function TerminalMock({ theme }: TerminalMockProps) {
           await new Promise(r => setTimeout(r, 75));
         }
         if (isCancelled) break;
-        // Dynamic calculation of Lot Size & Risk
-        setLotSizeDisplay('0.3125 BTC');
+        // Dynamic calculation of Dollar Risk
         setRiskDisplay('$125.00 (1.0%)');
         await new Promise(r => setTimeout(r, 120));
 
@@ -209,8 +208,9 @@ export function TerminalMock({ theme }: TerminalMockProps) {
           await new Promise(r => setTimeout(r, 75));
         }
         if (isCancelled) break;
-        // Dynamic calculation of R-Multiple
-        setRewardDisplay('1 : 3.25 R (+$406.25)');
+        // Dynamic calculation of Target R:R and Net Profit
+        setTargetRrDisplay('1 : 3.25 R');
+        setProfitDisplay('+$406.25');
         setFocusedField(null);
         await new Promise(r => setTimeout(r, 350));
         if (isCancelled) break;
@@ -340,7 +340,7 @@ export function TerminalMock({ theme }: TerminalMockProps) {
           style={{ borderBottomColor: activeStep === 2 ? currentTheme.accent : 'transparent' }}
         >
           <span className="font-mono text-[9px] opacity-70">02</span>
-          <span>Sizing &amp; Risk</span>
+          <span>Risk &amp; Targets</span>
         </div>
 
         <div
@@ -472,7 +472,7 @@ export function TerminalMock({ theme }: TerminalMockProps) {
               {checkedRules.length === 4 ? (
                 <>
                   <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                  Gate Unlocked · Proceed to Sizing &rarr;
+                  Gate Unlocked · Proceed to Entry &amp; Risk &rarr;
                 </>
               ) : (
                 <>
@@ -550,16 +550,16 @@ export function TerminalMock({ theme }: TerminalMockProps) {
               style={{ backgroundColor: currentTheme.bgElevation, borderColor: `${currentTheme.accent}30` }}
             >
               <div className="flex items-center justify-between text-xs">
-                <span className="text-txt-secondary font-medium">Calculated Lot Size:</span>
-                <span className="font-mono font-bold text-sm" style={{ color: currentTheme.accent }}>{lotSizeDisplay}</span>
+                <span className="text-txt-secondary font-medium">Target Reward Ratio:</span>
+                <span className="font-mono font-bold text-sm" style={{ color: currentTheme.bullish }}>{targetRrDisplay}</span>
               </div>
               <div className="flex items-center justify-between text-xs">
                 <span className="text-txt-secondary font-medium">Dollar Risk Amount:</span>
                 <span className="font-mono font-bold" style={{ color: currentTheme.bearish }}>{riskDisplay}</span>
               </div>
               <div className="flex items-center justify-between text-xs">
-                <span className="text-txt-secondary font-medium">Target Reward Ratio:</span>
-                <span className="font-mono font-bold" style={{ color: currentTheme.bullish }}>{rewardDisplay}</span>
+                <span className="text-txt-secondary font-medium">Estimated Net Profit:</span>
+                <span className="font-mono font-bold" style={{ color: currentTheme.accent }}>{profitDisplay}</span>
               </div>
             </div>
 
@@ -635,7 +635,7 @@ export function TerminalMock({ theme }: TerminalMockProps) {
 
       {/* Bottom step progress indicator */}
       <div className="px-4 pb-3 flex items-center justify-between text-[10px] text-txt-muted border-t border-dark-border pt-2.5">
-        <span>Step {activeStep} of 3: {activeStep === 1 ? 'Discipline Gate' : activeStep === 2 ? 'Sizing & Risk' : 'Verified Trade Log'}</span>
+        <span>Step {activeStep} of 3: {activeStep === 1 ? 'Discipline Gate' : activeStep === 2 ? 'Risk & Targets' : 'Verified Trade Log'}</span>
         <div className="flex gap-1">
           <div className={`h-1.5 rounded-full transition-all duration-300 ${activeStep === 1 ? 'w-5' : 'w-1.5 bg-dark-border'}`} style={{ backgroundColor: activeStep === 1 ? currentTheme.accent : undefined }}></div>
           <div className={`h-1.5 rounded-full transition-all duration-300 ${activeStep === 2 ? 'w-5' : 'w-1.5 bg-dark-border'}`} style={{ backgroundColor: activeStep === 2 ? currentTheme.accent : undefined }}></div>

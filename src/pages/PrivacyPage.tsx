@@ -1,7 +1,13 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Shield } from 'lucide-react';
 
 export function PrivacyPage() {
+  useEffect(() => {
+    document.title = 'Privacy Policy — TradeGate';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
   return (
     <div className="pt-24 pb-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Back button */}
@@ -25,7 +31,7 @@ export function PrivacyPage() {
           Privacy Policy
         </h1>
         <p className="text-sm text-txt-muted font-mono">
-          Last Updated: February 2026 · Effective Immediately
+          Last Updated: August 2026 · Effective Immediately
         </p>
       </div>
 
@@ -39,6 +45,12 @@ export function PrivacyPage() {
           <p>
             TradeGate operates <strong className="text-txt-primary">without external servers, databases, user accounts, cloud telemetry, or third-party analytics trackers</strong>. All calculations and storage happen entirely on your local machine.
           </p>
+          <div className="bg-dark-surface border border-dark-border rounded-xl p-4 mt-2">
+            <span className="font-bold text-brand-gold text-xs block mb-1">Website Analytics vs. Extension Zero-Telemetry</span>
+            <p className="text-xs text-txt-secondary">
+              The TradeGate Chrome extension collects zero telemetry, zero analytics, and zero user data. This marketing website (tradegate.app) utilizes privacy-friendly, anonymized Vercel Web Analytics solely to measure aggregate page traffic without cookies, persistent device fingerprints, or personal identifiers.
+            </p>
+          </div>
         </section>
 
         <section className="space-y-3">
@@ -47,7 +59,7 @@ export function PrivacyPage() {
           <ul className="list-disc pl-5 space-y-1 text-txt-muted">
             <li>Personal Identifiable Information (name, email address, phone number, IP address).</li>
             <li>Financial account credentials, broker API keys, exchange private keys, or wallet seed phrases.</li>
-            <li>Trade history, execution prices, stop losses, profit/loss numbers, or balance balances.</li>
+            <li>Trade history, execution prices, stop losses, profit/loss numbers, or account balances.</li>
             <li>Browser history, visited URLs, web traffic, or search queries.</li>
             <li>Device hardware identifiers, fingerprinting metrics, or geolocation coordinates.</li>
           </ul>
@@ -90,10 +102,18 @@ export function PrivacyPage() {
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xl font-bold text-txt-primary">5. Contact &amp; Inquiries</h2>
+          <h2 className="text-xl font-bold text-txt-primary">5. Contact &amp; Developer Support</h2>
           <p>
-            If you have questions regarding this Privacy Policy or TradeGate&apos;s local-first architecture, you can contact the open development team via our official community support channels.
+            If you have questions regarding this Privacy Policy, store permissions, or TradeGate&apos;s local-first architecture, please reach out directly to the core development team:
           </p>
+          <div className="pt-1">
+            <a 
+              href="mailto:support@tradegate.app" 
+              className="inline-flex items-center gap-2 text-brand-gold hover:underline font-semibold"
+            >
+              support@tradegate.app
+            </a>
+          </div>
         </section>
       </div>
     </div>

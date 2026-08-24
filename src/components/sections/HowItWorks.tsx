@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { Download, Pin, PanelLeft } from 'lucide-react';
 
 interface MicroUiItem {
   label: string;
@@ -56,18 +57,18 @@ export function HowItWorks() {
     },
     {
       num: "02",
-      phase: "PHASE 02 · POSITION SIZING",
-      title: "Calculate Precision Sizing",
-      desc: "Enter your entry, stop loss, and target prices. TradeGate calculates exact lot sizes, dollar risk amount, and target R-multiples across Crypto, Forex, and Futures.",
-      badge: "Multi-Market Math",
+      phase: "PHASE 02 · RISK & R:R ENGINE",
+      title: "Calculate Risk & Target R:R",
+      desc: "Enter your entry, stop loss, and take profit prices. TradeGate instantly calculates your exact dollar risk amount and target R-multiple from your account balance.",
+      badge: "Live Risk Math",
       badgeColor: "text-trade-green bg-trade-greenDim border-trade-green/30",
       microUi: [
-        { label: "Calculated Lot Size", status: "0.3125 BTC", type: "highlight" },
-        { label: "Dollar Risk Amount", status: "$125.00 (1.0%)", type: "risk" },
         { label: "Target Reward Ratio", status: "1 : 3.25 R", type: "profit" },
+        { label: "Dollar Risk Amount", status: "$125.00 (1.0%)", type: "risk" },
+        { label: "Live Account Balance", status: "$12,500.00", type: "highlight" },
         { label: "Target Net Profit", status: "+$406.25", type: "profit" }
       ],
-      footnote: "Formula: Lot Size = (Balance × Risk %) / |Entry − SL|"
+      footnote: "Formula: Risk $ = Balance × Risk % | Target R:R = |TP − Entry| / |Entry − SL|"
     },
     {
       num: "03",
@@ -95,7 +96,7 @@ export function HowItWorks() {
       {/* Dynamic ambient gold glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[450px] bg-brand-gold/5 blur-[160px] rounded-full pointer-events-none"></div>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10 space-y-14">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10 space-y-12">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto reveal">
@@ -175,20 +176,55 @@ export function HowItWorks() {
           ))}
         </div>
 
-        {/* Bottom Connected Workflow Summary Bar */}
-        <div className="reveal bg-dark-surface/80 border border-dark-border rounded-2xl p-4 sm:p-5 flex flex-wrap items-center justify-between gap-4 shadow-lg text-xs font-mono">
-          <div className="flex items-center gap-3">
-            <span className="w-2.5 h-2.5 rounded-full bg-trade-green animate-pulse"></span>
-            <span className="text-txt-primary font-bold">Closed-Loop Execution Cycle</span>
+        {/* Closed-Loop Execution Summary Bar & Quick 3-Step Install Flow */}
+        <div className="space-y-4 reveal">
+          <div className="bg-dark-surface/80 border border-dark-border rounded-2xl p-4 sm:p-5 flex flex-wrap items-center justify-between gap-4 shadow-lg text-xs font-mono">
+            <div className="flex items-center gap-3">
+              <span className="w-2.5 h-2.5 rounded-full bg-trade-green animate-pulse"></span>
+              <span className="text-txt-primary font-bold">Closed-Loop Execution Cycle</span>
+            </div>
+            <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-[11px] text-txt-secondary">
+              <span className="text-brand-gold font-bold">01. Checklist Pass</span>
+              <span className="text-txt-muted">&rarr;</span>
+              <span className="text-brand-gold font-bold">02. Risk &amp; R:R Math</span>
+              <span className="text-txt-muted">&rarr;</span>
+              <span className="text-brand-gold font-bold">03. Journal &amp; Audit</span>
+              <span className="text-txt-muted">&rarr;</span>
+              <span className="text-trade-green font-bold">Edge Compounded</span>
+            </div>
           </div>
-          <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-[11px] text-txt-secondary">
-            <span className="text-brand-gold font-bold">01. Checklist Pass</span>
-            <span className="text-txt-muted">&rarr;</span>
-            <span className="text-brand-gold font-bold">02. Exact Sizing</span>
-            <span className="text-txt-muted">&rarr;</span>
-            <span className="text-brand-gold font-bold">03. Journal &amp; Audit</span>
-            <span className="text-txt-muted">&rarr;</span>
-            <span className="text-trade-green font-bold">Edge Compounded</span>
+
+          {/* Quick 3-Step Setup Guide */}
+          <div className="bg-dark-elevation border border-dark-border rounded-2xl p-4 sm:p-6 grid sm:grid-cols-3 gap-4 text-left">
+            <div className="flex items-start gap-3">
+              <div className="w-8 h-8 rounded-lg bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center flex-shrink-0 text-brand-gold">
+                <Download className="w-4 h-4" />
+              </div>
+              <div>
+                <h4 className="text-xs font-bold text-txt-primary">1. Add to Chrome</h4>
+                <p className="text-[11px] text-txt-secondary mt-0.5">Install the extension from the official Chrome Web Store with one click.</p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3">
+              <div className="w-8 h-8 rounded-lg bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center flex-shrink-0 text-brand-gold">
+                <Pin className="w-4 h-4" />
+              </div>
+              <div>
+                <h4 className="text-xs font-bold text-txt-primary">2. Pin to Toolbar</h4>
+                <p className="text-[11px] text-txt-secondary mt-0.5">Click the extensions puzzle icon and pin TradeGate for quick access.</p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3">
+              <div className="w-8 h-8 rounded-lg bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center flex-shrink-0 text-brand-gold">
+                <PanelLeft className="w-4 h-4" />
+              </div>
+              <div>
+                <h4 className="text-xs font-bold text-txt-primary">3. Open Side Panel</h4>
+                <p className="text-[11px] text-txt-secondary mt-0.5">Dock the terminal alongside TradingView or your favorite exchange.</p>
+              </div>
+            </div>
           </div>
         </div>
 

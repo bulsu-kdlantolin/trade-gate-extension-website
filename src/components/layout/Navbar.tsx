@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Menu, X, Sun, Moon } from 'lucide-react';
+import { Menu, X, Sun, Moon, Download } from 'lucide-react';
 import { useThemeMode } from '../../context/ThemeModeContext';
 
 export function Navbar() {
@@ -93,7 +93,7 @@ export function Navbar() {
         </Link>
 
         {/* Desktop Nav with Smooth Hover Underline Effect */}
-        <div className="hidden md:flex items-center gap-7 text-sm">
+        <div className="hidden md:flex items-center gap-6 text-sm">
           {navLinks.map((link) => (
             <a
               key={link.id}
@@ -110,7 +110,7 @@ export function Navbar() {
           <button
             type="button"
             onClick={(e) => toggleMode(e)}
-            className="w-10 h-10 rounded-full border border-dark-border bg-dark-elevation text-brand-gold hover:border-brand-gold/60 hover:bg-dark-surface hover:scale-105 transition-all duration-300 cursor-pointer flex items-center justify-center shadow-md active:scale-95 group"
+            className="w-9 h-9 rounded-full border border-dark-border bg-dark-elevation text-brand-gold hover:border-brand-gold/60 hover:bg-dark-surface hover:scale-105 transition-all duration-300 cursor-pointer flex items-center justify-center shadow-md active:scale-95 group"
             aria-label={`Switch to ${mode === 'dark' ? 'Light' : 'Dark'} mode`}
             title={`Switch to ${mode === 'dark' ? 'Light' : 'Dark'} mode`}
           >
@@ -120,21 +120,41 @@ export function Navbar() {
               <Sun className="w-4 h-4 text-brand-gold fill-brand-gold/25 group-hover:rotate-45 transition-transform duration-300" />
             )}
           </button>
+
+          {/* Persistent Navbar CTA Button */}
+          <a
+            href="https://chromewebstore.google.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-cta inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-brand-gold hover:bg-brand-goldHover text-black font-bold text-xs shadow-md transition-transform"
+          >
+            <Download className="w-3.5 h-3.5" />
+            <span>Add to Chrome</span>
+          </a>
         </div>
 
         {/* Mobile menu button and circular theme toggle */}
-        <div className="flex items-center gap-2.5 md:hidden">
+        <div className="flex items-center gap-2 md:hidden">
           <button
             type="button"
             onClick={(e) => toggleMode(e)}
-            className="w-9 h-9 rounded-full border border-dark-border bg-dark-elevation text-brand-gold flex items-center justify-center active:scale-90"
+            className="w-8 h-8 rounded-full border border-dark-border bg-dark-elevation text-brand-gold flex items-center justify-center active:scale-90"
             aria-label="Toggle theme"
           >
-            {mode === 'dark' ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
+            {mode === 'dark' ? <Moon className="w-3.5 h-3.5" /> : <Sun className="w-3.5 h-3.5" />}
           </button>
           
-          <button onClick={toggleMenu} type="button" className="p-2 text-txt-muted hover:text-txt-primary transition-colors" aria-label="Open menu">
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          <a
+            href="https://chromewebstore.google.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-2.5 py-1 rounded bg-brand-gold text-black font-bold text-[11px] flex items-center gap-1 shadow-sm"
+          >
+            <span>Add</span>
+          </a>
+
+          <button onClick={toggleMenu} type="button" className="p-1.5 text-txt-muted hover:text-txt-primary transition-colors" aria-label="Open menu">
+            {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
       </nav>
@@ -153,6 +173,17 @@ export function Navbar() {
                 {link.label}
               </a>
             ))}
+            <div className="pt-2 border-t border-dark-border">
+              <a
+                href="https://chromewebstore.google.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-2.5 px-4 rounded-xl bg-brand-gold hover:bg-brand-goldHover text-black font-bold text-xs flex items-center justify-center gap-2 shadow-lg"
+              >
+                <Download className="w-4 h-4" />
+                <span>Add to Chrome — Free</span>
+              </a>
+            </div>
           </div>
         </div>
       )}

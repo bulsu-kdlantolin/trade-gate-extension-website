@@ -1,7 +1,13 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Scale } from 'lucide-react';
 
 export function TermsPage() {
+  useEffect(() => {
+    document.title = 'Terms of Service — TradeGate';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
   return (
     <div className="pt-24 pb-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Back button */}
@@ -25,7 +31,7 @@ export function TermsPage() {
           Terms of Service
         </h1>
         <p className="text-sm text-txt-muted font-mono">
-          Last Updated: February 2026 · Effective Immediately
+          Last Updated: August 2026 · Effective Immediately
         </p>
       </div>
 
@@ -43,7 +49,7 @@ export function TermsPage() {
           <div className="bg-dark-surface border border-brand-gold/30 rounded-2xl p-5 space-y-2">
             <h3 className="text-base font-bold text-brand-gold">CRITICAL FINANCIAL DISCLAIMER</h3>
             <p className="text-xs text-txt-secondary leading-relaxed">
-              TradeGate is strictly a mathematical calculations, position sizing, pre-trade checklist, and productivity logging tool. TradeGate does not execute orders on your behalf, does not connect directly to broker order books, and does not provide financial advice, trading signals, or investment recommendations.
+              TradeGate is strictly a mathematical calculation, position sizing, pre-trade checklist, and productivity logging tool. TradeGate does not execute orders on your behalf, does not connect directly to broker order books, and does not provide financial advice, trading signals, or investment recommendations.
             </p>
             <p className="text-xs text-txt-muted leading-relaxed">
               Trading cryptocurrencies, foreign exchange, commodities, equities, and futures contracts carries a high level of risk and may not be suitable for all investors. You are solely responsible for your own trading decisions.
@@ -68,8 +74,16 @@ export function TermsPage() {
         <section className="space-y-3">
           <h2 className="text-xl font-bold text-txt-primary">5. Contact Information</h2>
           <p>
-            For questions regarding these Terms of Service, please reach out through our official support channels.
+            For legal inquiries, feedback, or developer questions regarding these Terms of Service, please contact us:
           </p>
+          <div className="pt-1">
+            <a 
+              href="mailto:support@tradegate.app" 
+              className="inline-flex items-center gap-2 text-brand-gold hover:underline font-semibold"
+            >
+              support@tradegate.app
+            </a>
+          </div>
         </section>
       </div>
     </div>

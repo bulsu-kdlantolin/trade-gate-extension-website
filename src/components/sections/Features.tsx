@@ -74,13 +74,13 @@ export function Features() {
                 ELIMINATED
               </span>
             </div>
-            <h3 className="text-base font-bold text-txt-primary">Mental Math Sizing Errors</h3>
+            <h3 className="text-base font-bold text-txt-primary">Uncontrolled Risk &amp; Sizing</h3>
             <p className="text-xs text-txt-secondary leading-relaxed">
-              Guessing lot sizes or risking 5% instead of 1% during high volatility is replaced by instant multi-market position calculations.
+              Risking 5% instead of 1% or guessing your payout is eliminated by live Dollar Risk ($) and dynamic Target Risk-to-Reward (R:R) calculations before every entry.
             </p>
             <div className="pt-2 border-t border-dark-border flex items-center gap-1.5 text-[11px] text-trade-green font-semibold">
               <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Fixed % &amp; Dollar Formula Sizing</span>
+              <span>Dynamic Dollar Risk &amp; R:R Formula</span>
             </div>
           </div>
 
@@ -138,24 +138,24 @@ export function Features() {
               </div>
             </div>
 
-            {/* Pillar 2: Multi-Market Lot Sizing Calculator */}
+            {/* Pillar 2: Dynamic Risk & Target R:R Calculator */}
             <div className="card-glow bg-dark-surface border border-dark-border rounded-2xl p-6 space-y-4 shadow-xl flex flex-col justify-between">
               <div className="space-y-3">
                 <div className="w-10 h-10 rounded-xl bg-brand-goldDim flex items-center justify-center text-brand-gold">
                   <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
                 </div>
-                <h4 className="text-lg font-bold text-txt-primary">Multi-Market Lot Sizing</h4>
+                <h4 className="text-lg font-bold text-txt-primary">Risk &amp; Target R:R Calculator</h4>
                 <p className="text-txt-secondary text-xs leading-relaxed">
-                  Instant position sizing and dollar risk calculation for Crypto, Forex pairs, Equities, Indices, and Futures with accurate pip and point multipliers.
+                  Instant mathematical dollar risk computation ($) and target risk-to-reward ratio (R:R) derived dynamically from your account balance, entry, stop loss, and take profit targets.
                 </p>
               </div>
               <div className="bg-dark-elevation p-3 rounded-xl border border-dark-border space-y-1 font-mono text-[10px]">
                 <div className="flex items-center justify-between">
-                  <span className="text-txt-muted">Lot Size:</span>
-                  <span className="font-bold text-brand-gold">0.3125 BTC</span>
+                  <span className="text-txt-muted">Target R:R Ratio:</span>
+                  <span className="font-bold text-trade-green">1 : 3.25 R</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-txt-muted">Dollar Risk:</span>
+                  <span className="text-txt-muted">Dollar Risk Amount:</span>
                   <span className="font-bold text-trade-red">$125.00 (1.0%)</span>
                 </div>
               </div>

@@ -105,12 +105,25 @@ export function Footer() {
             <ul className="space-y-1 text-[11px] text-txt-secondary">
               <li>
                 <Link to="/support" className="hover:text-brand-gold transition-colors">
-                  Support / Donate
+                  Support &amp; Donate
                 </Link>
               </li>
               <li>
-                <a href="https://chrome.google.com/webstore" target="_blank" rel="noopener noreferrer" className="hover:text-brand-gold transition-colors">
+                <a 
+                  href="https://chromewebstore.google.com/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="hover:text-brand-gold transition-colors"
+                >
                   Chrome Web Store
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="mailto:support@tradegate.app" 
+                  className="hover:text-brand-gold transition-colors"
+                >
+                  support@tradegate.app
                 </a>
               </li>
             </ul>

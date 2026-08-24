@@ -73,6 +73,12 @@
     border-color: var(--border-color);
   }
 
+  /* High-Contrast Accessible Keyboard Focus */
+  :focus-visible {
+    outline: 2px solid var(--brand-gold) !important;
+    outline-offset: 2px !important;
+  }
+
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 4rem;

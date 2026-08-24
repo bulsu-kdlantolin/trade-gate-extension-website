@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Copy, Check, Heart, Shield, Terminal, Zap, ArrowLeft } from 'lucide-react';
+import { Copy, Check, Heart, Shield, Terminal, Zap, ArrowLeft, Mail } from 'lucide-react';
 
 interface CryptoAddress {
   coin: string;
@@ -11,6 +11,11 @@ interface CryptoAddress {
 
 export function SupportPage() {
   const [copiedCoin, setCopiedCoin] = useState<string | null>(null);
+
+  useEffect(() => {
+    document.title = 'Support & Community — TradeGate';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
 
   const cryptoAddresses: CryptoAddress[] = [
     {
@@ -174,10 +179,21 @@ export function SupportPage() {
         </div>
       </div>
 
-      {/* Thank You Note */}
-      <div className="mt-12 text-center text-xs text-txt-muted space-y-2">
-        <p>Thank you for supporting the development of discipline-first trading tools.</p>
-        <p>Every contribution directly supports new feature development and maintenance.</p>
+      {/* Direct Contact & Thank You Note */}
+      <div className="mt-12 text-center text-xs text-txt-muted space-y-3 border-t border-dark-border pt-8">
+        <p className="text-txt-secondary">
+          Need developer support, want to report a bug, or suggest a feature?
+        </p>
+        <div>
+          <a 
+            href="mailto:support@tradegate.app" 
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-dark-surface border border-dark-border hover:border-brand-gold/40 text-brand-gold font-semibold text-xs transition-colors"
+          >
+            <Mail className="w-3.5 h-3.5" />
+            support@tradegate.app
+          </a>
+        </div>
+        <p className="pt-2">&copy; 2026 TradeGate Development Team. Every contribution directly supports new feature releases.</p>
       </div>
     </div>
   );
