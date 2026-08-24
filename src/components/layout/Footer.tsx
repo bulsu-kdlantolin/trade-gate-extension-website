@@ -110,6 +110,16 @@ export function Footer() {
               </li>
               <li>
                 <a 
+                  href="https://t.me/tradegatejournal" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="hover:text-brand-gold transition-colors"
+                >
+                  Telegram Community
+                </a>
+              </li>
+              <li>
+                <a 
                   href="https://chromewebstore.google.com/" 
                   target="_blank" 
                   rel="noopener noreferrer" 

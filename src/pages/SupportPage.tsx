@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Copy, Check, Heart, Shield, Terminal, Zap, ArrowLeft } from 'lucide-react';
+import { Copy, Check, Heart, Shield, Terminal, Zap, ArrowLeft, Send } from 'lucide-react';
 
 interface CryptoAddress {
   coin: string;
@@ -59,9 +59,9 @@ export function SupportPage() {
   };
 
   return (
-    <div className="pt-24 pb-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="pt-24 pb-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
       {/* Back button */}
-      <div className="mb-8">
+      <div>
         <Link 
           to="/" 
           className="inline-flex items-center gap-2 text-sm text-txt-secondary hover:text-brand-gold transition-colors"
@@ -72,7 +72,7 @@ export function SupportPage() {
       </div>
 
       {/* Header Banner */}
-      <div className="text-center space-y-4 mb-14">
+      <div className="text-center space-y-4">
         <div className="inline-flex items-center gap-2 bg-brand-goldDim border border-brand-gold/25 rounded-full px-4 py-1 text-xs text-brand-gold font-bold uppercase tracking-wider">
           <Heart className="w-3.5 h-3.5 fill-brand-gold" />
           Community Powered &amp; 100% Free
@@ -85,13 +85,38 @@ export function SupportPage() {
         </p>
       </div>
 
+      {/* Official Telegram Community & Direct Support */}
+      <div className="bg-dark-surface border border-brand-gold/30 rounded-2xl p-6 sm:p-8 text-center space-y-4 shadow-2xl">
+        <div className="inline-flex items-center gap-2 bg-brand-goldDim border border-brand-gold/30 rounded-full px-3.5 py-1 text-xs text-brand-gold font-bold">
+          <Send className="w-3.5 h-3.5" />
+          Official Trader Community
+        </div>
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-txt-primary">
+          Join the TradeGate Telegram
+        </h2>
+        <p className="text-xs sm:text-sm text-txt-secondary max-w-xl mx-auto leading-relaxed">
+          Connect directly with the developer and fellow discipline-first traders. Get early updates on new feature releases, report bugs, discuss strategy rules, and request exchange themes.
+        </p>
+        <div className="pt-2">
+          <a
+            href="https://t.me/tradegatejournal"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-cta inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-xl bg-brand-gold text-black font-bold text-sm shadow-lg hover:opacity-95 transition-all"
+          >
+            <Send className="w-4 h-4 fill-current" />
+            t.me/tradegatejournal
+          </a>
+        </div>
+      </div>
+
       {/* Value Proposition Cards */}
-      <div className="grid sm:grid-cols-3 gap-5 mb-12">
+      <div className="grid sm:grid-cols-3 gap-5">
         <div className="bg-dark-surface border border-dark-border rounded-2xl p-5 space-y-2">
           <div className="w-10 h-10 rounded-xl bg-brand-goldDim flex items-center justify-center mb-3">
             <Shield className="w-5 h-5 text-brand-gold" />
           </div>
-          <h2 className="text-base font-bold text-txt-primary">Zero Paywalls</h2>
+          <h3 className="text-base font-bold text-txt-primary">Zero Paywalls</h3>
           <p className="text-xs text-txt-secondary leading-relaxed">
             Every feature, calculator, strategy gate, and export tool remains 100% free for all traders worldwide.
           </p>
@@ -101,7 +126,7 @@ export function SupportPage() {
           <div className="w-10 h-10 rounded-xl bg-brand-goldDim flex items-center justify-center mb-3">
             <Terminal className="w-5 h-5 text-brand-gold" />
           </div>
-          <h2 className="text-base font-bold text-txt-primary">100% Local-First</h2>
+          <h3 className="text-base font-bold text-txt-primary">100% Local-First</h3>
           <p className="text-xs text-txt-secondary leading-relaxed">
             No investor backing, no corporate data monetization, and no servers. Your support funds direct tool updates.
           </p>
@@ -111,7 +136,7 @@ export function SupportPage() {
           <div className="w-10 h-10 rounded-xl bg-brand-goldDim flex items-center justify-center mb-3">
             <Zap className="w-5 h-5 text-brand-gold" />
           </div>
-          <h2 className="text-base font-bold text-txt-primary">Continuous Updates</h2>
+          <h3 className="text-base font-bold text-txt-primary">Continuous Updates</h3>
           <p className="text-xs text-txt-secondary leading-relaxed">
             New exchange themes, advanced strategy rules, deeper analytics, and charting integrations are continually added.
           </p>
@@ -180,7 +205,7 @@ export function SupportPage() {
       </div>
 
       {/* Thank You Note */}
-      <div className="mt-12 text-center text-xs text-txt-muted space-y-2 border-t border-dark-border pt-8">
+      <div className="text-center text-xs text-txt-muted space-y-2 border-t border-dark-border pt-8">
         <p className="text-txt-secondary">
           Thank you for supporting the continuous development of discipline-first trading tools.
         </p>
