@@ -11,7 +11,7 @@
 [![License](https://img.shields.io/badge/License-MIT-E5B82A?style=flat-square)](LICENSE)
 [![Telegram Community](https://img.shields.io/badge/Telegram-Community-26A5E4?style=flat-square&logo=telegram&logoColor=white)](https://t.me/tradegatejournal)
 
-[🌐 Live Website](https://tradegate.app) · [🧩 Chrome Web Store](https://chromewebstore.google.com/) · [💬 Telegram Community](https://t.me/tradegatejournal) · [💛 Support Development](https://tradegate.app/support)
+[🌐 Live Website](https://tradegate.app) · [🧩 Chrome Web Store](https://chromewebstore.google.com/detail/tradegate-trading-journal/fjaifapnjdlecekhffilonafpnkeefdj?authuser=1&hl=en) · [💬 Telegram Community](https://t.me/tradegatejournal) · [💛 Support Development](https://tradegate.app/support)
 
 </div>
 
@@ -180,7 +180,7 @@ TradeGate uses a custom design system built with CSS custom properties and Tailw
 ## 💬 Community & Support
 
 - **Telegram Community:** [t.me/tradegatejournal](https://t.me/tradegatejournal)
-- **Chrome Web Store:** [Install Extension](https://chromewebstore.google.com/)
+- **Chrome Web Store:** [Install Extension](https://chromewebstore.google.com/detail/tradegate-trading-journal/fjaifapnjdlecekhffilonafpnkeefdj?authuser=1&hl=en)
 - **Support & Donations:** [tradegate.app/support](https://tradegate.app/support)
 
 ---

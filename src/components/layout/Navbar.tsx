@@ -123,7 +123,7 @@ export function Navbar() {
 
           {/* Persistent Navbar CTA Button */}
           <a
-            href="https://chromewebstore.google.com/"
+            href="https://chromewebstore.google.com/detail/tradegate-trading-journal/fjaifapnjdlecekhffilonafpnkeefdj?authuser=1&hl=en"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-cta inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-brand-gold hover:bg-brand-goldHover text-black font-bold text-xs shadow-md transition-transform"
@@ -145,7 +145,7 @@ export function Navbar() {
           </button>
           
           <a
-            href="https://chromewebstore.google.com/"
+            href="https://chromewebstore.google.com/detail/tradegate-trading-journal/fjaifapnjdlecekhffilonafpnkeefdj?authuser=1&hl=en"
             target="_blank"
             rel="noopener noreferrer"
             className="px-2.5 py-1 rounded bg-brand-gold text-black font-bold text-[11px] flex items-center gap-1 shadow-sm"
@@ -175,7 +175,7 @@ export function Navbar() {
             ))}
             <div className="pt-2 border-t border-dark-border">
               <a
-                href="https://chromewebstore.google.com/"
+                href="https://chromewebstore.google.com/detail/tradegate-trading-journal/fjaifapnjdlecekhffilonafpnkeefdj?authuser=1&hl=en"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full py-2.5 px-4 rounded-xl bg-brand-gold hover:bg-brand-goldHover text-black font-bold text-xs flex items-center justify-center gap-2 shadow-lg"

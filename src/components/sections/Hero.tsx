@@ -33,7 +33,7 @@ export function Hero() {
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start animate-slide-up" style={{ animationDelay: '200ms' }}>
               <a 
-                href="https://chromewebstore.google.com/" 
+                href="https://chromewebstore.google.com/detail/tradegate-trading-journal/fjaifapnjdlecekhffilonafpnkeefdj?authuser=1&hl=en" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="btn-cta inline-flex items-center gap-2.5 bg-brand-gold text-black font-bold px-8 py-4 rounded-xl text-base w-full sm:w-auto justify-center shadow-xl hover:opacity-95 transition-opacity"

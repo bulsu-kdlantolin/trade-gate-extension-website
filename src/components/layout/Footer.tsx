@@ -120,7 +120,7 @@ export function Footer() {
               </li>
               <li>
                 <a 
-                  href="https://chromewebstore.google.com/" 
+                  href="https://chromewebstore.google.com/detail/tradegate-trading-journal/fjaifapnjdlecekhffilonafpnkeefdj?authuser=1&hl=en" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="hover:text-brand-gold transition-colors"
